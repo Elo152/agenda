@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100px auto;
+    grid-template-areas:    "header header header"
+                            "main main main"
+                            "footer footer footer";
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    padding: 2rem;
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    margin-left: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    opacity: 0.8;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main{
+    grid-area: main;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.main-content{
+    width: 50%;
+}
+
+.search-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.search {
+    width: 50%;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.seccion-contactos {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.seccion-contactos h2 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #4CAF50;
+    text-align: center;
+}
+
+.lista-contactos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.lista-contactos a {
+    text-decoration: none;
+    color: #333;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.lista-contactos a:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-login, .login, .registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-container {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+input {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="file"] {
+    padding-top: 1rem;
+}
+
+h2 {
+    padding-bottom: 2rem;
+}
+
+p {
+    padding-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.a-form:hover {
+    text-decoration: underline;
+}
+
+label {
+    margin-top: 10px;
+}
+
+dialog {
+    font-weight: bold;
+    padding: 2rem;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    border-radius: 0.6rem;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#openDialog {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 0.7rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.button, .button-login, .button-dialog-agregar, .button-dialog-cerrar {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: medium;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-dialog-agregar, .button-dialog-cerrar {
+    width: 100%; /* Hace que los botones ocupen el 100% del ancho disponible */
+    max-width: 400px; /* Establece un límite de ancho si lo prefieres */
+    margin-top: 0.5rem; /* Añade un margen superior */
+    padding: 0.75rem; /* Ajusta el padding si lo necesitas */
+}
+
+.button {
+    background-color: #f0f0f0;
+    margin-right: 0.5rem;
+}
+
+.button:hover, .button-login:hover, .button-dialog-agregar:hover {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-login {
+    background-color: #f0f0f0;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.button-dialog-agregar {
+    background-color: #4CAF50;
+    margin-top: 0.5rem;
+    max-width: 400px;
+}
+
+.button-dialog-cerrar {
+    background-color: #e12e2e;
+    margin-top: 0.5rem;
+    max-width: 400px;
+}
+
+.alert {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert.error {
+    background-color: #f44336;
+    font-weight: 500;
+}
+
+.error {
+    color:#f44336;
+}
+
+.contact-details {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.message-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.message-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sent-messages {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sent-messages h2 {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.message{
+    font-size: 1rem;
+    font-weight: 800;
+}
+.date{
+    font-size: small;
+}
+footer {
+    grid-area: footer;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
